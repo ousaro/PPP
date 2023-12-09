@@ -4,10 +4,10 @@ body{
 }
 .navbar{
   background-color: #efefef;
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 70px;
-  border-bottom: 1px solid grey;
+  z-index: 1000;
 }
 
 .navbar img{
@@ -48,6 +48,7 @@ body{
 }
 
 
+
 .links{
   float: right;
   position: relative;
@@ -62,3 +63,22 @@ body{
   color: black;
   text-decoration: none;
 }
+
+.firstpg{
+  margin: 0;
+  padding: 0;
+  background-color: #0cc3e2;
+  float: right;
+  width: 100%;
+  height: 800px ;
+  position: relative;
+  top: 70px;
+}
+
+img{
+  width:1200px;
+  position: relative;
+  top: -200px;
+  left: 300px;
+}
+
