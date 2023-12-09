@@ -1,13 +1,64 @@
-body {
+body{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+}
+.navbar{
+  background-color: #efefef;
+  position: absolute;
+  width: 100%;
+  height: 70px;
+  border-bottom: 1px solid grey;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.navbar img{
+  float: left;
+  position: relative;
+  left: 10px;
+  top: -22px;
+  width: 120px;
+}
+
+.navbar input{
+  position: relative;
+  top: 20px;
+  left: 60px;
+  border-radius: 10px;
+  width: 150px;
+  height: 30px;
+  background-image: url("./search.png");
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position: 5px;
+  padding-left: 30px;
+ 
+}
+
+.signin{
+  float: right;
+  border-radius: 20px;
+  width: 80px;
+  height: 35px;
+  position: relative;
+  top: 15px;
+  left: 400px;
+  background-color: #0cc3e2;
+  color: white;
+  font-size: 1.2em;
+  border: none;
+}
+
+
+.links{
+  float: right;
+  position: relative;
+  right: 250px;
+  top: 20px;
+}
+
+.links a{
+  font-size: 1.3em;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-right: 50px;
+  color: black;
+  text-decoration: none;
 }
