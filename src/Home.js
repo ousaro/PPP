@@ -9,7 +9,7 @@ const Home = () => {
                 <h1>Connecting Compassion for Rapid Relief.</h1>
                 <h2>Unifying Hearts, Empowering Lives</h2>
                 <img src={img1} />
-            <button className="blackbt">CONTRIBUTE</button>
+            <button className="blackbt" onClick={() => alert('Contribute')}>CONTRIBUTE</button>
             </div>
          <div className="clear"></div>
          <div className="secondpg">
@@ -22,7 +22,18 @@ const Home = () => {
                     and collaborations in the face of natural disasters or
                     humanitarian crises.</p>
                 <img src={img2} />
-                <button className="blackbt">LEARN MORE</button>
+                <button className="blackbt" onClick={() => alert('Learn more')}>LEARN MORE</button>
+         </div>
+         <div className="clear"></div>
+         <div className="thirdpg">
+                <h2>CoeurSolidaire Fundraisers in Your Community</h2>
+                <p>Be a driving force for positive change</p>
+                <ul>
+                    <a href="/"><li id="partnership">CORPORATE PARTNERSHIP</li></a>
+                    <a href="/"><li id="ind-giving">INDIVIDUAL GIVING</li></a>
+                    <a href="/"> <li id="support">LOCAL BUSINESS SUPPORT</li></a>
+                </ul>
+                <button className="blackbt" onClick={() => alert('View more')}>VIEW MORE</button>
          </div>
         </div>
         

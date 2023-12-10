@@ -20,7 +20,7 @@ body{
 
 .navbar input{
   position: relative;
-  top: 20px;
+  top: 15px;
   left: 60px;
   border-radius: 10px;
   width: 150px;
@@ -165,4 +165,80 @@ body{
   position: relative;
   top: 500px;
   left: 920px;
+}
+
+.thirdpg{
+  margin: 0;
+  padding: 0;
+  background-color: #0cc3e2;
+  width: 100%;
+  height: 700px ;
+  float: right;
+  position: relative;
+  top: 54px;
+}
+
+.thirdpg h2{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 2.5em;
+  color: white;
+  text-align: center;
+  width: 900px;
+  position: relative;
+  left: 310px;
+  top: 50px;
+}
+
+.thirdpg p{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5em;
+  color: white;
+  text-align: center;
+  width: 400px;
+  position: relative;
+  left: 550px;
+  top: 50px;
+}
+
+.thirdpg ul{
+  float: left;
+  margin-top: 60px;
+  margin-left: 160px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+.thirdpg li{
+  list-style: none;
+  float: left;
+  margin-right: 120px;
+  background-color: white;
+  border-radius: 50px;
+  width: 300px;
+  height: 70px;
+  text-align: center;
+  padding-top: 280px;
+  color: black;
+  background-repeat: no-repeat;
+  background-size: 230px;
+  background-position: 50% 20%;
+}
+
+#partnership{
+  background-image: url("./img-li1.png");
+}
+
+#ind-giving{
+  background-image: url("./img-li2.png");
+}
+
+#support{
+  background-image: url("./img-li3.png");
+  background-size: 400px;
+}
+
+.thirdpg button{
+  position: relative;
+  left: 650px;
+  top: 20px;
 }

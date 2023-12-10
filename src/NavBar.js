@@ -12,7 +12,7 @@ const NavBar = () => {
                 <a href="/">Contact</a>
                
             </div>
-            <button className="signin">Sign in</button>
+            <button className="signin" onClick={() => alert('Sign in')}>Sign in</button>
            
         </nav>
      );
