@@ -1,4 +1,4 @@
-body{
+*{
   margin: 0;
   padding: 0;
 }
@@ -78,8 +78,6 @@ body{
 }
 
 .firstpg{
-  margin: 0;
-  padding: 0;
   background-color: #0cc3e2;
   width: 100%;
   height: 700px ;
@@ -91,7 +89,6 @@ body{
   width:800px;
   float: right;
   position: relative;
-  top: -40px;
   left: -10px;
 }
 
@@ -128,8 +125,8 @@ body{
 
 .firstpg button{
   position: relative;
-  top: 450px;
-  left: -1010px;
+  top: 300px;
+  left: 70px;
 }
 
 .clear{
@@ -181,8 +178,6 @@ body{
 }
 
 .thirdpg{
-  margin: 0;
-  padding: 0;
   background-color: #0cc3e2;
   width: 100%;
   height: 700px ;
@@ -199,7 +194,7 @@ body{
   width: 900px;
   position: relative;
   left: 310px;
-  top: 50px;
+  top: 20px;
 }
 
 .thirdpg p{
@@ -215,8 +210,8 @@ body{
 
 .thirdpg ul{
   float: left;
-  margin-top: 60px;
-  margin-left: 160px;
+  margin-top: 80px;
+  margin-left: 170px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1.1em;
@@ -224,7 +219,7 @@ body{
 .thirdpg li{
   list-style: none;
   float: left;
-  margin-right: 120px;
+  margin-right: 140px;
   background-color: white;
   border-radius: 50px;
   width: 300px;
@@ -253,24 +248,22 @@ body{
 .thirdpg button{
   position: relative;
   left: 650px;
-  top: 20px;
+  top: 40px;
 }
 
 .fourthpg{
-  margin: 0;
-  padding: 0;
   background-color: rebeccapurple;
   width: 100%;
   height: 700px ;
   float: right;
   position: relative;
-  top: 54px;
+  top: 90px;
 }
 
 .parterner{
   background-color: #E6EDFF;
   width: 100%;
-  height: 350px;
+  height: 400px;
   position: relative;
   top: -37px;
   
@@ -293,7 +286,7 @@ body{
   list-style: none;
   float: left;
   margin-right: 100px;
-  margin-top: -60px;
+  margin-top: -30px;
 }
 
 .parterner img{
@@ -309,7 +302,7 @@ body{
 .team{
   background-color: #0cc3e2;
   width: 100%;
-  height: 350px;
+  height: 390px;
   position: relative;
   top: -100px;
 }
@@ -333,7 +326,7 @@ body{
   float: left;
   position: relative;
   left: 120px;
-  top: -10px;
+  top: 40px;
   margin-right: 170px;
 
 }
@@ -342,7 +335,7 @@ body{
   width: 30px;
   margin-right: 5px;
   position: relative;
-  top: -15px;
+  top: 10px;
 }
 
 .profile{
@@ -352,8 +345,6 @@ body{
 }
 
 .fifthpg{
-  margin: 0;
-  padding: 0;
   background-color: #E6EDFF;
   width: 100%;
   height: 700px ;
@@ -372,7 +363,7 @@ body{
 .info{
   float: right;
   position: relative;
-  top: -400px;
+  top: -390px;
   right: 150px;
 }
 
@@ -398,7 +389,7 @@ body{
 .info li{
   list-style: none;
   position: relative;
-  top: 10px;
+  top: 30px;
   left: 10px;
   float:right;
   margin-right: 10px;
@@ -417,7 +408,31 @@ body{
 
 #copywrite{
   position: relative;
-  top: 140px;
-  left: -480px;
+  top: 215px;
+  left: -450px;
   width: 300px;
+}
+
+.AboutUs{
+  color: black;
+  width: 500px;
+  position: relative;
+  top: 150px;
+  left: 500px;
+}
+
+.Services {
+  color: black;
+  width: 500px;
+  position: relative;
+  top: 150px;
+  left: 500px;
+}
+
+.Contact {
+  color: black;
+  width: 500px;
+  position: relative;
+  top: 150px;
+  left: 500px;
 }
