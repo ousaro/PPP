@@ -17,7 +17,7 @@ const Home = () => {
     return ( 
         <div className="homepg">
             <div className="firstpg">
-                <h1>Connecting Compassion for inpt.</h1>
+                <h1>Connecting Compassion for Rapid Relief.</h1>
                 <h2>Unifying Hearts, Empowering Lives</h2>
                 <img src={img1} alt=""/>
             <button className="blackbt" onClick={() => alert('Contribute')}>CONTRIBUTE</button>
