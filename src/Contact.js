@@ -1,16 +1,11 @@
 
 
 const Contact = () => {
-    return ( 
-        <div className="Contact">
-            <ul>
-                <li>Oussama</li>
-                <li>Soufyan</li>
-                <li>Abdelilah</li>
-                <li>Nabil</li>
-            </ul>
-        </div>
-     );
+
+    window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: "smooth",
+    });
 }
  
 export default Contact;
