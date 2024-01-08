@@ -1,11 +1,15 @@
 import Logo from "./coeursolidaire.png"
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory} from "react-router-dom/cjs/react-router-dom.min";
 import Contact from "./Contact";
 import Services from "./Services";
 import AboutUs from "./AboutUs";
-import GoHome from "./GoHome"
+import GoHome from "./GoHome";
+import HandleSignInBt from "./HandleSignInBt";
 
 const NavBar = () => {
+
+    const history = useHistory()
+
     return ( 
         <nav className="navbar">
             <img src={Logo} alt=""/>
@@ -16,7 +20,7 @@ const NavBar = () => {
                 <Link to="/" onClick={Services}>Services</Link>
                 <Link to="/" onClick={Contact}>Contact</Link>
             </div>
-            <button className="signin" onClick={() => alert('Sign in')}>Sign in</button>
+            <button className="signin" onClick={()=>HandleSignInBt(history)}>Sign in</button>
             <div className="language">
                 <a href="/">en</a>
             </div>

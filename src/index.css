@@ -8,6 +8,7 @@
   width: 100%;
   height: 70px;
   z-index: 1000;
+  border-bottom: 1px solid gray;
 }
 
 .navbar img{
@@ -436,3 +437,339 @@
   top: 150px;
   left: 500px;
 }
+
+.siIN{
+  position: relative;
+  top: 150px;
+}
+
+
+/*sign in page*/
+
+.SingInContent{
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 40px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  background: #EFEFEF;
+  height: 44em;
+}
+
+.right{
+    float: right;
+    position: relative;
+    top: 40px;
+    width: 450px;
+    height: auto;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+}
+.right h1{
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: 1px solid silver;
+}
+.right form{
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+#login-container{
+  position: relative;
+  right: 110px;
+  top: 110px;
+  display: none;
+}
+
+.txt_field{
+  position: relative;
+  border-bottom: 1px solid #adadad;
+  margin: 40px 0;
+}
+.txt_field input{
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  background: none;
+  outline: none;
+}
+.txt_field label{
+  position: absolute;
+  top: 20%;
+  left: 5px;
+  color: #adadad;
+  font-size: 16px;
+  pointer-events: none;
+  transition: .5s;
+}
+.txt_field input:focus ~ label,
+.txt_field input:valid ~ label{
+  top: -8px;
+  color: #2691d9;
+}
+
+.passForgoten {
+  margin: -5px 0 20px 5px;
+  color: #a6a6a6;
+  cursor: pointer;
+}
+.passForgoten a{
+  text-decoration: none;
+}
+.passForgoten a:hover{
+  text-decoration: underline;
+}
+input[type="submit"]{
+  width: 100%;
+  height: 50px;
+  border: 1px solid;
+  background: #2691d9;
+  border-radius: 25px;
+  font-size: 1.5em;
+  color: #e9f4fb;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+}
+input[type="submit"]:hover{
+  border-color: #015d9a;
+  transition: .5s;
+}
+
+.signup_link{
+  margin: 30px 0;
+  text-align: center;
+  font-size: 16px;
+  color: #666666;
+}
+.signup_link a{
+  color: #2691d9;
+  text-decoration: none;
+}
+.signup_link a:hover{
+  text-decoration: underline;
+}
+
+
+.logo {
+    position: fixed;
+    top: 90px; 
+    left: 60px;
+    width: 750px;
+  }
+ 
+  #Forgot-pass-container{
+    display: none;
+    position: relative;
+    right: 110px;
+    top: 150px;
+  }
+
+  
+.txt_field2{
+  position: relative;
+  border-bottom: 1px solid #adadad;
+  margin: 30px 0;
+}
+.txt_field2 input{
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  background: none;
+  outline: none;
+}
+.txt_field2 label{
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  color: #adadad;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.txt_field2 input:focus ~ label,
+.txt_field2 input:valid ~ label{
+  top: -2px;
+  color: #2691d9;
+}
+
+.Forgot-pass-link2{
+  margin: 30px 0;
+  text-align: center;
+  font-size: 16px;
+  color: #666666;
+}
+.Forgot-pass-link2 a{
+  color: #2691d9;
+  text-decoration: none;
+}
+.Forgot-pass-link2 a:hover{
+  text-decoration: underline;
+}
+
+
+
+#signup-container{
+  display: block;
+  position: relative;
+  right: 110px;
+}
+
+.txt_field1{
+    position: relative;
+    top: -18px;
+    border-bottom: 1px solid #adadad;
+    margin: 14px 0;
+  }
+.txt_field1 input{
+    position: relative;
+    top: 15px;
+    width: 100%;
+    height: 35px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+    
+    
+  }
+
+.txt_field1 label{
+    position: relative;
+    top: -15px;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    transition: .5s;
+  }
+
+.txt_field1 input:focus ~ label,
+.txt_field1 input:valid ~ label{
+    top: -30px;
+    color: #2691d9;
+  }
+
+.signup_link1{
+    margin: 20px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #666666;
+  }
+.signup_link1 a{
+    color: #2691d9;
+    text-decoration: none;
+  }
+.signup_link1 a:hover{
+    text-decoration: underline;
+  }
+
+  select#user-type {
+    width: 100%;
+    padding: 10px;
+    margin: 20px 0; 
+    font-size: 16px;
+    border: 2px solid #adadad;
+    border-radius: 0px;
+    background: #fff;
+    outline: none;
+    transition: border-color 0.5s;
+}
+
+select#user-type:focus {
+  border-color: #2691d9;
+  box-shadow: 0 0 5px rgba(38, 145, 217, 0.5);
+}
+
+select#user-type option {
+    color: #999;
+}
+
+select#user-type option:checked {
+    background-color: #2691d9;
+    color: black;
+}
+
+
+select#user-type:hover option {
+    background-color: white;
+}
+
+
+
+.terms-checkbox {
+  margin: 0px 0 10px 0;
+}
+
+.terms-checkbox input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.terms-checkbox label {
+  display: inline-block;
+  font-size: 14px;
+  color: #666;
+}
+
+.terms-checkbox a {
+  text-decoration: none;
+}
+
+.terms-checkbox a:hover {
+  text-decoration: underline;
+}
+
+
+/* Styles for Date of Birth input field */
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px 15px 0px;
+}
+
+.flex-container label {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+input[type="date"]{
+  width: 100%;
+  padding: 7px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+
+}
+
+input[type="date"]:focus {
+    border-color: #2691d9;
+}
+
+
+
+.gender-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.gender-buttons li{
+  list-style: none;
+  display: inline-block;
+  margin: 8px 8px 0 0px;
+}
+
+
+
+
+
+

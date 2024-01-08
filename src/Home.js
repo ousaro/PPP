@@ -12,15 +12,20 @@ import instagram from "./instagram.png"
 import linkdin from "./linkdin.png"
 import donation from "./Donation.png"
 import Logo from "./coeursolidaire.png"
+import HandleSignInBt from "./HandleSignInBt"
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 
 const Home = () => {
+
+    const history = useHistory()
+
     return ( 
         <div className="homepg">
             <div className="firstpg">
                 <h1>Connecting Compassion for Rapid Relief.</h1>
                 <h2>Unifying Hearts, Empowering Lives</h2>
                 <img src={img1} alt=""/>
-            <button className="blackbt" onClick={() => alert('Contribute')}>CONTRIBUTE</button>
+            <button className="blackbt" onClick={() => HandleSignInBt(history)}>CONTRIBUTE</button>
             </div>
             <div className="clear"></div>
             <div className="secondpg">
