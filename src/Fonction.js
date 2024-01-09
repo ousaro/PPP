@@ -33,17 +33,3 @@ const authHandlers = (signId, logId, forgotpassId, none, block) => {
  }
 
 export default authHandlers;
-
-/*
-document.getElementById('forgot-pass-link').addEventListener('click', function(event) {
-    event.preventDefault();
-    showForgotPass();
-});
-
-document.getElementById('login-link').addEventListener('click', function(event) {
-    event.preventDefault();
-    showLogin();
-});
-
-export {showSignup, showLogin, showForgotPass}
-*/
