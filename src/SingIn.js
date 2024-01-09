@@ -1,4 +1,6 @@
 import Logo from "./coeursolidaire.png"
+import authHandlers from "./Fonction";
+
 
 const SignIn = () => {
 
@@ -19,11 +21,17 @@ const SignIn = () => {
                         <label>Password</label>
                     </div>
                     <div class="passForgoten">
-                        <a href="#">Forgot Password?</a>
+                        <a onClick={()=>{
+                        const handler=authHandlers("signup-container","login-container","Forgot-pass-container", "none", "block")
+                        handler.ForgotPassHandler();
+                    }}>Forgot Password?</a>
                     </div>
-                    <input type="submit" value="Login"></input>
+                    <input type="submit" value="Login" onClick={()=>{alert("successfuly log in ")}}></input>
                     <div class="signup_link">
-                        Not a member? <a href="#" >SignUp</a>
+                        Not a member? <a onClick={()=>{
+                        const handler=authHandlers("signup-container","login-container","Forgot-pass-container", "none", "block")
+                        handler.SignUpHandler()
+                    }} >SignUp</a>
                     </div>
                 </form>
             </div>
@@ -39,9 +47,15 @@ const SignIn = () => {
                         <input type="email-number" required></input>
                         <label>Email or mobile number</label>
                     </div>
-                    <input type="submit" value="Send"></input>
+                    <input type="submit" value="Send" onClick={()=>{
+                        const handler=authHandlers("signup-container","login-container","Forgot-pass-container", "none", "block")
+                        handler.LogInHandler()
+                    }}></input>
                     <div class="Forgot-pass-link2">
-                        Back to the <a href="#" >Login page</a>
+                        Back to the <a onClick={()=>{
+                        const handler=authHandlers("signup-container","login-container","Forgot-pass-container", "none", "block")
+                        handler.LogInHandler()
+                    }} >Login page</a>
                     </div>
                 </form>
             </div>
@@ -96,9 +110,17 @@ const SignIn = () => {
                         <label for="terms-checkbox">I agree to the <a href="https://www.termsandconditionsgenerator.com/live.php?token=H4A5kjdc08abZes6KCKrIQZM0JkGeBCV" target="_blank">Terms of Privacy and Policy</a></label>
                     </div>
             
-                    <input type="submit" value="Sign Up"></input>
+                    <input type="submit" value="Sign Up"
+                     onClick={()=>{
+                        alert('successfuly sign up')
+                        }}>
+                     </input>
                     <div class="signup_link1">
-                        Already have an account? <a href="#" >Login</a>
+                        Already have an account? <a 
+                        onClick={()=>{
+                            const handler=authHandlers("signup-container","login-container","Forgot-pass-container", "none", "block")
+                            handler.LogInHandler()
+                            }} >Login</a>
                     </div>
                 </form> 
                 </div>

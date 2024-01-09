@@ -1,28 +1,40 @@
-import { useState } from "react";
+const authHandlers = (signId, logId, forgotpassId, none, block) => {
 
+    const signele = document.getElementById(signId);
+    const logle = document.getElementById(logId);
+    const forgotele = document.getElementById(forgotpassId);
+    
 
-
-const ShowSignUp = () => {
-
-    const [useShowSignUp, setShowSignUp] = useState(true);
-    const [useShowLogIn, setShowLogIn] = useState(false);
-
-    const showAccessHandler = () => {
-        setShowLogIn(true);
-        setShowSignUp(true);
+    const SignUpHandler = () => {
+        signele.style.display = block;
+        logle.style.display= none;
+        forgotele.style.display = none;
     };
 
-}
- 
-export default ShowSignUp;
+
+    const LogInHandler = () => {
+        signele.style.display = none;
+        logle.style.display= block;
+        forgotele.style.display = none;
+    };
+
+    const ForgotPassHandler = () => {
+        signele.style.display = none;
+        logle.style.display= none;
+        forgotele.style.display = block;
+    }
+
+    return {
+        SignUpHandler, 
+        LogInHandler,
+        ForgotPassHandler
+    }
+
+ }
+
+export default authHandlers;
 
 /*
-function showForgotPass() {
-    document.getElementById("login-container").style.display = "none";
-    document.getElementById("Forgot-pass-container").style.display = "block";
-}
-
-
 document.getElementById('forgot-pass-link').addEventListener('click', function(event) {
     event.preventDefault();
     showForgotPass();
