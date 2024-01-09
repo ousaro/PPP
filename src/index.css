@@ -515,7 +515,7 @@
 
 .passForgoten {
   margin: -5px 0 20px 5px;
-  color: #a6a6a6;
+  color: rgb(72, 72, 72);
   cursor: pointer;
 }
 .passForgoten a{
