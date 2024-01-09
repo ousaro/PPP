@@ -11,14 +11,19 @@ const SignIn = () => {
                 <h1>
                     Login
                 </h1>
-                <form method="post">
+                <form id="loginForm" onSubmit={(event)=>{
+                    event.preventDefault()
+                    alert("successfuly log in ")
+                    document.getElementById("loginForm").reset()
+                    }}>
+
                     <div class="txt_field">
                         <input type="text" required></input>
-                        <label>Username</label>
+                        <label id="username">Username</label>
                     </div>
                     <div class="txt_field">
                         <input type="password" required></input>
-                        <label>Password</label>
+                        <label id="pass">Password</label>
                     </div>
                     <div class="passForgoten">
                         <a onClick={()=>{
@@ -26,7 +31,7 @@ const SignIn = () => {
                         handler.ForgotPassHandler();
                     }}>Forgot Password?</a>
                     </div>
-                    <input type="submit" value="Login" onClick={()=>{alert("successfuly log in ")}}></input>
+                    <input type="submit" value="Login"></input>
                     <div class="signup_link">
                         Not a member? <a onClick={()=>{
                         const handler=authHandlers("signup-container","login-container","Forgot-pass-container", "none", "block")
@@ -38,19 +43,22 @@ const SignIn = () => {
     
             <div class="right" id="Forgot-pass-container">
                 <h1>Forgot Password</h1>
-                <form method="post">
+                <form id="forgtoPassForm" onSubmit={(event)=>{
+                    event.preventDefault()
+                    const handler=authHandlers("signup-container","login-container","Forgot-pass-container", "none", "block")
+                    handler.LogInHandler()
+                    document.getElementById("forgtoPassForm").reset()
+                    }}>
+
                     <div class="txt_field2">
                         <input type="text" required></input>
-                        <label>Username</label>
+                        <label id="username">Username</label>
                     </div>
                     <div class="txt_field2">
                         <input type="email-number" required></input>
-                        <label>Email or mobile number</label>
+                        <label id="email_number">Email or mobile number</label>
                     </div>
-                    <input type="submit" value="Send" onClick={()=>{
-                        const handler=authHandlers("signup-container","login-container","Forgot-pass-container", "none", "block")
-                        handler.LogInHandler()
-                    }}></input>
+                    <input type="submit" value="Send" ></input>
                     <div class="Forgot-pass-link2">
                         Back to the <a onClick={()=>{
                         const handler=authHandlers("signup-container","login-container","Forgot-pass-container", "none", "block")
@@ -64,7 +72,12 @@ const SignIn = () => {
                 <h1>
                     Sign Up
                 </h1>
-                <form method="post">
+                <form id="signupForm" onSubmit={(event)=>{
+                    event.preventDefault()
+                    alert('successfuly sign up')
+                    document.getElementById("signupForm").reset()
+                    }}>
+
                     <div class="txt_field1">
                         <input type="text" required></input>
                         <label>Username</label>
@@ -110,11 +123,7 @@ const SignIn = () => {
                         <label for="terms-checkbox">I agree to the <a href="https://www.termsandconditionsgenerator.com/live.php?token=H4A5kjdc08abZes6KCKrIQZM0JkGeBCV" target="_blank">Terms of Privacy and Policy</a></label>
                     </div>
             
-                    <input type="submit" value="Sign Up"
-                     onClick={()=>{
-                        alert('successfuly sign up')
-                        }}>
-                     </input>
+                    <input type="submit" value="Sign Up"></input>
                     <div class="signup_link1">
                         Already have an account? <a 
                         onClick={()=>{
