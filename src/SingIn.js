@@ -1,8 +1,33 @@
 import Logo from "./coeursolidaire.png"
-import authHandlers from "./Fonction";
+import authHandlers from "./Auth";
+import { useState } from "react";
+import { useFormSubmit } from "./verficationInputsHandler";
 
 
 const SignIn = () => {
+
+    const {
+        isSubmitted,
+        address,
+        name,
+        phoneNB1,
+        city,
+        state,
+        zip,
+        director,
+        cin,
+        phoneNB2,
+        handleAddressChange,
+        handleNameChange,
+        handlePhoneNB1Change,
+        handleCityChange,
+        handleStateChange,
+        handleZipChange,
+        handleDirectorChange,
+        handleCinChange,
+        handlePhoneNB2Change,
+        handleSubmit
+        } = useFormSubmit();
 
     return ( 
     <div className="SingInContent">
@@ -132,7 +157,148 @@ const SignIn = () => {
                             }} >Login</a>
                     </div>
                 </form> 
-                </div>
+            </div>
+
+            <div class = "right" id="association_verification">
+                <h1>
+                    Association Verification
+                </h1>
+                <form id="verification-form">
+                    <div class="ass_inf" >
+                        <input type="text" onChange={handleNameChange} required></input>
+                        <label>Association name</label>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div className={`${isSubmitted && name === '' ? "invalid-feedback": "invalid-hide"}`}>
+                            Please enter a Name.
+                        </div>
+                    </div>
+
+                    <div class="ass_inf">
+                        <input type="text" onChange={handleAddressChange} required></input>
+                        <label >Address</label>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div className={`${isSubmitted && address === '' ? "invalid-feedback": "invalid-hide"}`}>
+                            Please provide a valid address.
+                        </div>
+                    </div>
+
+                    <div class="ass_inf">
+                        <input type="text" onChange={handlePhoneNB1Change} required></input>
+                        <label >Phone number</label>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div className={`${isSubmitted && phoneNB1 === '' ? "invalid-feedback": "invalid-hide"}`}>
+                            Please provide a valid phone number.
+                        </div>
+                    </div>
+
+                    <div class="ass_inf">
+                        <input type="text" onChange={handleCityChange} required></input>
+                        <label >City</label>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div className={`${isSubmitted && city === '' ? "invalid-feedback": "invalid-hide"}`}>
+                            Please provide a valid city.
+                        </div>
+                    </div>
+
+                    <div class="ass_inf">
+                        <select onChange={handleStateChange} required>
+                            <option selected disabled value="">Choose...</option>
+                            <option>Tanger-Tétouan-Al Hoceïma</option>
+                            <option>Oriental</option>
+                            <option>Fès-Meknès</option>
+                            <option>Rabat-Salé-Kénitra</option>
+                            <option>Béni Mellal-Khénifra</option>
+                            <option>Drâa-Tafilalet</option>
+                            <option>Souss-Massa</option>
+                            <option>Guelmim-Oued Noun</option>
+                            <option>Laâyoune-Sakia El Hamra</option>
+                            <option>Dakhla-Oued Ed-Dahab</option>
+                        </select>
+                        <label className="state_label">State</label>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div className={`${isSubmitted && state === '' ? "invalid-feedback": "invalid-hide"}`}>
+                            Please select a valid state.
+                        </div>
+                    </div>
+
+                    <div class="ass_inf">
+                        <input type="text"  onChange={handleZipChange} required></input>
+                        <label>Zip Code</label>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div className={`${isSubmitted && zip === '' ? "invalid-feedback": "invalid-hide"}`}>
+                            Please provide a valid zip.
+                        </div>
+                    </div>
+
+                    <div class="ass_inf">
+                        <input type="text" onChange={handleDirectorChange} required></input>
+                        <label>Directeur</label>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div className={`${isSubmitted && director === '' ? "invalid-feedback": "invalid-hide"}`}>
+                            Please enter a Name.
+                        </div>
+                    </div>
+
+                    <div class="ass_inf">
+                        <input type="text"  onChange={handleCinChange} required></input>
+                        <label>CIN or Passport</label>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div className={`${isSubmitted && cin === '' ? "invalid-feedback": "invalid-hide"}`}>
+                            Please provide a valid CIN or Passort.
+                        </div>
+                    </div>
+
+                    <div class="ass_inf">
+                        <input type="text"  onChange={handlePhoneNB2Change} required></input>
+                        <label>Phone number</label>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div className={`${isSubmitted && phoneNB2 === '' ? "invalid-feedback": "invalid-hide"}`}>
+                            Please provide a valid Phone number.
+                        </div>
+                    </div>
+
+                    
+                    <div class="ver_file">
+                        <label>
+                            <span class="required-field">Lettre de déclaration de l’association</span> *
+                        </label>
+                        <input type="file" accept=".pdf, .doc, .docx" required></input>
+                    </div>
+
+                    
+                    <div class="ver_file">
+                        <label>
+                            <span class="required-field">Lettre de domiciliation</span> *  
+                        </label>
+                        <input type="file" accept=".pdf, .doc, .docx" required></input>
+                    </div>
+
+                    <div class="btn_sumbmit">
+                        <input type="submit" value="Next Page"  onClick={handleSubmit}></input>
+                    </div>
+
+
+                </form>
+            </div>
+
 
 
     </div>
