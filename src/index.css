@@ -17,6 +17,7 @@
   left: 10px;
   top: -25px;
   width: 170px;
+  cursor: pointer;
 }
 
 .navbar input{
@@ -26,12 +27,16 @@
   border-radius: 10px;
   width: 150px;
   height: 30px;
-  background-image: url("./search.png");
-  background-repeat: no-repeat;
-  background-size: 25px;
-  background-position: 5px;
   padding-left: 30px;
- 
+}
+
+#searchIcon{
+  position: relative;
+  top: 19px;
+  left: 89px;
+  z-index: inherit;
+  width: 26px;
+  cursor: pointer;
 }
 
 .signin{
@@ -64,6 +69,7 @@
   left: 540px;
   top: 20px;
   font-size: 1.3em;
+  cursor: pointer;
 }
 
 .language a{
@@ -446,8 +452,10 @@
 
 
 /*sign in page*/
+/*------------------------------------------------------------*/
 
 .SingInContent{
+  display: grid;
   margin: 0;
   padding: 0;
   position: relative;
@@ -455,13 +463,14 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   background: #EFEFEF;
-  height: 44em;
+  height: auto;
 }
 
 .right{
     float: right;
     position: relative;
     top: 40px;
+    left:1000px;
     width: 450px;
     height: auto;
     background: white;
@@ -478,11 +487,17 @@
   box-sizing: border-box;
 }
 
+
+/*login container*/
+/*------------------------------------------------------------*/
+
+
 #login-container{
   position: relative;
   right: 110px;
   top: 110px;
   display: none;
+  margin-bottom:250px ;
 }
 
 .txt_field{
@@ -560,15 +575,21 @@ input[type="submit"]:hover{
 .logo {
     position: fixed;
     top: 90px; 
-    left: 60px;
+    left: -45px;
     width: 750px;
   }
  
+
+/*forgot password*/
+/*------------------------------------------------------------*/
+
+
   #Forgot-pass-container{
     display: none;
     position: relative;
     right: 110px;
     top: 150px;
+    margin-bottom: 320px ;
   }
 
   
@@ -617,12 +638,15 @@ input[type="submit"]:hover{
   text-decoration: underline;
 }
 
+/*signup_container*/
+/*------------------------------------------------------------*/
 
 
 #signup-container{
   display: block;
   position: relative;
   right: 110px;
+  margin-bottom: 50px
 }
 
 .txt_field1{
@@ -730,7 +754,6 @@ select#user-type:hover option {
 }
 
 
-/* Styles for Date of Birth input field */
 .flex-container {
     display: flex;
     flex-direction: column;
@@ -770,12 +793,16 @@ input[type="date"]:focus {
 }
 
 
+/*associatoin_verification*/
+/*------------------------------------------------------------*/
+
 #association_verification{
   display: none;
   position: relative;
   top: 65px;
-  right: 30px;
+  left: 690px;
   width: 780px;
+  margin-bottom: 120px
   
 }
 
@@ -787,6 +814,7 @@ input[type="date"]:focus {
   margin: 5px 10px 0 0px;
   width: 48%;
   height: 70px;
+  z-index: 1;
 }
 
 .ass_inf input{
@@ -868,10 +896,13 @@ input[type="date"]:focus {
 
 
 .btn_sumbmit{
+  float: right;
+  position: relative;
+  top: 35px;
   margin-top: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   width: 20%;
-  font-size: 0.7em;
+  font-size: 0.9em;
 }
 
 .ver_file{
@@ -889,3 +920,75 @@ input[type="date"]:focus {
 .ver_file input:valid{
   color: green;
 }
+
+.btn_back{
+  
+  margin-top: 20px;
+  margin-bottom: 10px;
+  width: 20%;
+  font-size: 0.9em;
+}
+
+.ass_descr{
+  position: relative;
+  top: 65px;
+  right: 345px;
+  z-index: 0;
+}
+
+.ass_descr label{
+  color: #adadad;
+  font-size: 16px;
+  position: relative;
+  top: -125px;
+  left: 360px;
+  padding: 0 2px 0 2px;
+  transition: .5s;
+}
+
+.ass_descr textarea:focus ~ label,
+.ass_descr textarea:valid ~ label{
+  color: #2691d9;
+  top: -145px;
+  background-color: white;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+}
+
+.ass_descr textarea:valid ~ .valid-feedback
+{
+  color:green;
+  opacity: 1;
+  transform: translateY(20px);
+}
+
+.ass_descr textarea{
+  width: 100%;
+  height: 80px;
+  position: relative;
+  left: 345px;
+  top: -40px;
+  padding: 5px;
+  border: 1px solid #adadad;
+  resize: none;
+  outline: none;
+}
+
+.ass_descr textarea:focus
+{
+  border: 1px solid black;
+}
+
+#descr_invalid{
+  position: relative;
+  left: 350px;
+  top: -80px;
+  
+}
+
+#descr_valid{
+  position: relative;
+  left:350px;
+  top: -80px;
+}
+

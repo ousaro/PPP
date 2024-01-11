@@ -12,6 +12,20 @@ export function useFormSubmit() {
   const [director, setDirector] = useState("");
   const [cin, setCin] = useState("");
   const [phoneNB2, setPhoneNB2] = useState("");
+  const [userType, setUserType] = useState("");
+  const [descr,setDescr]=useState("");
+
+
+
+  const handleDescrChange = (event) => {
+    setDescr(event.target.value);
+  }
+
+  const handleUserTypeChange = (event) => {
+    setUserType(event.target.value);
+    
+  }
+
 
   const handleAddressChange = (event) => {
     setAddress(event.target.value);
@@ -59,11 +73,19 @@ export function useFormSubmit() {
       zip === "" ||
       director === "" ||
       cin === "" ||
-      phoneNB2 === ""
-    ) {
+      phoneNB2 === "" ||
+      descr === ""
+    ) 
+    {
       event.preventDefault();
-    } else {
+
+    } 
+    
+    else 
+    {
+
       alert("Submitted");
+      
     }
 
     setIsSubmitted(true);
@@ -80,6 +102,8 @@ export function useFormSubmit() {
     director,
     cin,
     phoneNB2,
+    userType,
+    descr,
     handleAddressChange,
     handleNameChange,
     handlePhoneNB1Change,
@@ -90,5 +114,7 @@ export function useFormSubmit() {
     handleCinChange,
     handlePhoneNB2Change,
     handleSubmit,
+    handleUserTypeChange,
+    handleDescrChange
   };
 }

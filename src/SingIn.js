@@ -1,6 +1,5 @@
 import Logo from "./coeursolidaire.png"
 import authHandlers from "./Auth";
-import { useState } from "react";
 import { useFormSubmit } from "./verficationInputsHandler";
 
 
@@ -17,6 +16,8 @@ const SignIn = () => {
         director,
         cin,
         phoneNB2,
+        userType,
+        descr,
         handleAddressChange,
         handleNameChange,
         handlePhoneNB1Change,
@@ -26,12 +27,34 @@ const SignIn = () => {
         handleDirectorChange,
         handleCinChange,
         handlePhoneNB2Change,
-        handleSubmit
+        handleSubmit,
+        handleUserTypeChange,
+        handleDescrChange
         } = useFormSubmit();
+        
+
+        const SignUpFormHandler = (event)=>{
+            if(userType==="simple-user"){
+
+                alert('successfuly sign up')
+            }
+            else
+            {
+                const handler=authHandlers("signup-container","login-container","Forgot-pass-container","association_verification", "none", "block")
+                handler.AssociationVerHandler()
+            }
+
+            event.preventDefault()
+            document.getElementById("signupForm").reset()
+            
+        }
+
+
+
 
     return ( 
     <div className="SingInContent">
-            <img src={Logo} class="logo"></img>
+            <img src={Logo} alt="" class="logo"></img>
             <div class="right" id="login-container">
                 <h1>
                     Login
@@ -52,14 +75,14 @@ const SignIn = () => {
                     </div>
                     <div class="passForgoten">
                         <a onClick={()=>{
-                        const handler=authHandlers("signup-container","login-container","Forgot-pass-container", "none", "block")
+                        const handler=authHandlers("signup-container","login-container","Forgot-pass-container","association_verification", "none", "block")
                         handler.ForgotPassHandler();
                     }}>Forgot Password?</a>
                     </div>
                     <input type="submit" value="Login"></input>
                     <div class="signup_link">
                         Not a member? <a onClick={()=>{
-                        const handler=authHandlers("signup-container","login-container","Forgot-pass-container", "none", "block")
+                        const handler=authHandlers("signup-container","login-container","Forgot-pass-container","association_verification", "none", "block")
                         handler.SignUpHandler()
                     }} >SignUp</a>
                     </div>
@@ -70,9 +93,10 @@ const SignIn = () => {
                 <h1>Forgot Password</h1>
                 <form id="forgtoPassForm" onSubmit={(event)=>{
                     event.preventDefault()
-                    const handler=authHandlers("signup-container","login-container","Forgot-pass-container", "none", "block")
+                    const handler=authHandlers("signup-container","login-container","Forgot-pass-container","association_verification", "none", "block")
                     handler.LogInHandler()
                     document.getElementById("forgtoPassForm").reset()
+                    document.getElementById("loginForm").reset()
                     }}>
 
                     <div class="txt_field2">
@@ -86,7 +110,7 @@ const SignIn = () => {
                     <input type="submit" value="Send" ></input>
                     <div class="Forgot-pass-link2">
                         Back to the <a onClick={()=>{
-                        const handler=authHandlers("signup-container","login-container","Forgot-pass-container", "none", "block")
+                        const handler=authHandlers("signup-container","login-container","Forgot-pass-container","association_verification", "none", "block")
                         handler.LogInHandler()
                     }} >Login page</a>
                     </div>
@@ -97,12 +121,7 @@ const SignIn = () => {
                 <h1>
                     Sign Up
                 </h1>
-                <form id="signupForm" onSubmit={(event)=>{
-                    event.preventDefault()
-                    alert('successfuly sign up')
-                    document.getElementById("signupForm").reset()
-                    }}>
-
+                <form id="signupForm" onSubmit={SignUpFormHandler}>
                     <div class="txt_field1">
                         <input type="text" required></input>
                         <label>Username</label>
@@ -137,7 +156,7 @@ const SignIn = () => {
                     </div>
                     
     
-                    <select id="user-type" name="user-type">
+                    <select id="user-type"  onChange={handleUserTypeChange}>
                         <option selected disabled>Choose account type</option>
                         <option value="simple-user">Simple User</option>
                         <option value="association">Association</option>
@@ -152,7 +171,7 @@ const SignIn = () => {
                     <div class="signup_link1">
                         Already have an account? <a 
                         onClick={()=>{
-                            const handler=authHandlers("signup-container","login-container","Forgot-pass-container", "none", "block")
+                            const handler=authHandlers("signup-container","login-container","Forgot-pass-container","association_verification", "none", "block")
                             handler.LogInHandler()
                             }} >Login</a>
                     </div>
@@ -275,6 +294,17 @@ const SignIn = () => {
                         </div>
                     </div>
 
+
+                    <div class="ass_descr">
+                        <textarea onChange={handleDescrChange} required></textarea>
+                        <label>Description of the main goals of the association</label>
+                        <div class="valid-feedback" id="descr_valid">
+                            Looks good!
+                        </div>
+                        <div className={`${isSubmitted && descr === '' ? "invalid-feedback": "invalid-hide"}`} id="descr_invalid">
+                            A bref description is required.
+                        </div>
+                    </div>
                     
                     <div class="ver_file">
                         <label>
@@ -291,15 +321,27 @@ const SignIn = () => {
                         <input type="file" accept=".pdf, .doc, .docx" required></input>
                     </div>
 
+                    <div class="ver_file">
+                        <label>
+                            <span class="required-field">Association members</span> *  
+                        </label>
+                        <input type="file" accept=".pdf, .doc, .docx" required></input>
+                    </div>
+
                     <div class="btn_sumbmit">
-                        <input type="submit" value="Next Page"  onClick={handleSubmit}></input>
+                        <input type="submit" value="submit"  onClick={handleSubmit}></input>
+                    </div>
+
+                    <div class="btn_back">
+                        <input type="submit" value="Back" onClick={()=>{
+                            const handler=authHandlers("signup-container","login-container","Forgot-pass-container","association_verification", "none", "block")
+                            handler.SignUpHandler()}
+                        }></input>
                     </div>
 
 
                 </form>
             </div>
-
-
 
     </div>
     
