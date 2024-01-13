@@ -1,8 +1,13 @@
 
 import { useState } from 'react';
+import authHandlers from './Auth';
 
 export function useFormSubmit() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmittedLog, setIsSubmittedLog] = useState(false);
+  const [isSubmittedForg, setIsSubmittedForg] = useState(false);
+  const [isSubmittedSignUp, setIsSubmittedSignUp]=useState(false);
+
   const [address, setAddress] = useState("");
   const [name, setName] = useState("");
   const [phoneNB1, setPhoneNB1] = useState("");
@@ -12,9 +17,92 @@ export function useFormSubmit() {
   const [director, setDirector] = useState("");
   const [cin, setCin] = useState("");
   const [phoneNB2, setPhoneNB2] = useState("");
-  const [userType, setUserType] = useState("");
   const [descr,setDescr]=useState("");
 
+  const [userType, setUserType] = useState("");
+  const [date, setDate]=useState("");
+  const [gender, setGender] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [term, setTerms] = useState(false);
+
+  const [usernameLog, setUsernameLog] = useState("");
+  const [passwordLog, setPasswordLog] = useState("");
+
+  const [usernameForg, setUsernameForgLog] = useState("");
+  const [emailForg, setEmailForg] = useState("");
+
+
+  // reset form
+  const RestForm = (event)=>{
+    document.getElementById("signupForm").reset()
+    document.getElementById("user-type").selectedIndex=0
+    setUsername("")
+    setEmail("")
+    setPassword("")
+    setDate("")
+    setGender("")
+    setUserType("")
+    setTerms(false)
+  }
+
+  const ResetFormLog = (event) =>{
+    document.getElementById("loginForm").reset()
+    setUsernameLog("")
+    setPasswordLog("")
+  }
+
+  const ResetFormForg = (event) =>{
+    document.getElementById("forgtoPassForm").reset()
+    setUsernameForgLog("")
+    setEmailForg("")
+    ResetFormLog()
+  }
+
+
+
+  // handle the input changed value
+
+  const handleUsernameLogChange = (event) => {
+    setUsernameLog(event.target.value);
+  };
+  
+  const handlePasswordLogChange = (event) => {
+    setPasswordLog(event.target.value);
+  };
+  
+  const handleUsernameForgChange = (event) => {
+    setUsernameForgLog(event.target.value);
+  };
+  
+  const handleEmailForgChange = (event) => {
+    setEmailForg(event.target.value);
+  };
+
+  const handleTermsChange = (event) =>{
+    setTerms(!term)
+  }
+
+  const handleUsernameChange = (event)=>{
+    setUsername(event.target.value)
+  }
+
+  const handleEmailChange = (event)=>{
+    setEmail(event.target.value)
+  }
+
+  const handlePasswordChange = (event)=>{
+    setPassword(event.target.value)
+  }
+
+  const handleDateChange = (event)=>{
+    setDate(event.target.value)
+  }
+
+  const handleGenderChange = (event)=>{
+    setGender(event.target.value)
+  }
 
 
   const handleDescrChange = (event) => {
@@ -63,6 +151,84 @@ export function useFormSubmit() {
     setPhoneNB2(event.target.value);
   };
 
+
+  //submits handler
+
+
+  const handleSubmitLog = (event) =>{
+    if (
+      usernameLog === "" ||
+      passwordLog === "" 
+    ) 
+    {
+      event.preventDefault();
+    } 
+    
+    else 
+    {
+
+        alert("successfuly log in ")
+      
+    }
+
+    setIsSubmittedLog(true);
+  }
+
+
+  const handleSubmitForg = (event) =>{
+    if (
+      usernameForg === "" ||
+      emailForg === "" 
+    ) 
+
+    {
+      event.preventDefault();
+
+    } 
+    
+    else 
+    {
+
+      const handler=authHandlers("signup-container","login-container","Forgot-pass-container","association_verification", "none", "block")
+      handler.LogInHandler()
+      ResetFormForg()
+      
+    }
+
+    setIsSubmittedForg(true);
+  }
+
+
+  const handleSubmitSignUp = (event)=>{
+
+    if(username===""||
+       password===""||
+       email==="" ||
+       (userType !=="simple-user" && userType!=="association")||
+       date===""||
+       gender===""||
+       term === false
+       ){
+
+        event.preventDefault();
+
+      }
+    else{
+      if(userType==="simple-user"){
+
+        alert('successfuly sign up')
+      }
+      else if(userType==="association")
+      {
+        const handler=authHandlers("signup-container","login-container","Forgot-pass-container","association_verification", "none", "block")
+        handler.AssociationVerHandler()
+        RestForm()
+      }
+   }    
+      setIsSubmittedSignUp(true);
+  }
+
+
   const handleSubmit = (event) => {
     if (
       address === "" ||
@@ -93,6 +259,10 @@ export function useFormSubmit() {
 
   return {
     isSubmitted,
+    isSubmittedSignUp,
+    isSubmittedForg,
+    isSubmittedLog,
+    
     address,
     name,
     phoneNB1,
@@ -102,8 +272,35 @@ export function useFormSubmit() {
     director,
     cin,
     phoneNB2,
-    userType,
     descr,
+
+    userType,
+    date,
+    gender,
+    email,
+    password,
+    username,
+    term,
+
+    usernameForg,
+    emailForg,
+
+    usernameLog,
+    passwordLog,
+
+    handleSubmit,
+    handleSubmitSignUp,
+    handleSubmitForg,
+    handleSubmitLog,
+
+    handleTermsChange,
+    handleDateChange,
+    handleUsernameChange,
+    handleEmailChange,
+    handlePasswordChange,
+    handleUserTypeChange,
+    handleGenderChange,
+
     handleAddressChange,
     handleNameChange,
     handlePhoneNB1Change,
@@ -113,8 +310,16 @@ export function useFormSubmit() {
     handleDirectorChange,
     handleCinChange,
     handlePhoneNB2Change,
-    handleSubmit,
-    handleUserTypeChange,
-    handleDescrChange
+    handleDescrChange,
+  
+    handleUsernameLogChange,
+    handlePasswordLogChange,
+
+    handleEmailForgChange,
+    handleUsernameForgChange,
+
+    RestForm,
+    ResetFormLog,
+    ResetFormForg,
   };
 }

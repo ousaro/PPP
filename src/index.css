@@ -504,7 +504,11 @@
   position: relative;
   border-bottom: 1px solid #adadad;
   margin: 40px 0;
+  height: 40px;
+  
 }
+
+
 .txt_field input{
   width: 100%;
   padding: 0 5px;
@@ -528,6 +532,20 @@
   top: -8px;
   color: #2691d9;
 }
+
+.txt_field input:valid ~ .valid-feedback,
+.txt_field select:valid ~ .valid-feedback
+{
+  color:green;
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.txt_field input:required ~ .invalid-feedback{
+  position: relative;
+  top: -15px;
+}
+
 
 .passForgoten {
   margin: -5px 0 20px 5px;
@@ -597,6 +615,7 @@ input[type="submit"]:hover{
   position: relative;
   border-bottom: 1px solid #adadad;
   margin: 30px 0;
+  height: 40px;
 }
 .txt_field2 input{
   width: 100%;
@@ -624,6 +643,20 @@ input[type="submit"]:hover{
   color: #2691d9;
 }
 
+.txt_field2 input:valid ~ .valid-feedback,
+.txt_field2 select:valid ~ .valid-feedback
+{
+  color:green;
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.txt_field2 input:required ~ .invalid-feedback{
+  position: relative;
+  top: -15px;
+}
+
+
 .Forgot-pass-link2{
   margin: 30px 0;
   text-align: center;
@@ -646,14 +679,16 @@ input[type="submit"]:hover{
   display: block;
   position: relative;
   right: 110px;
-  margin-bottom: 50px
+  margin-bottom: 65px
 }
 
 .txt_field1{
     position: relative;
-    top: -18px;
+    top: -10px;
     border-bottom: 1px solid #adadad;
     margin: 14px 0;
+    height: 45px;
+    
   }
 .txt_field1 input{
     position: relative;
@@ -664,8 +699,7 @@ input[type="submit"]:hover{
     border: none;
     background: none;
     outline: none;
-    
-    
+
   }
 
 .txt_field1 label{
@@ -678,14 +712,31 @@ input[type="submit"]:hover{
     transition: .5s;
   }
 
+.txt_field1 input:required~ .invalid-feedback{
+  position: relative;
+  top: -25px;
+}
+
 .txt_field1 input:focus ~ label,
 .txt_field1 input:valid ~ label{
     top: -30px;
     color: #2691d9;
   }
 
+
+  .txt_field1 input:valid ~ .valid-feedback,
+  .txt_field1 select:valid ~ .valid-feedback
+  {
+    color:green;
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+
+  
+
+
 .signup_link1{
-    margin: 20px 0;
+    margin: 10px 0;
     text-align: center;
     font-size: 16px;
     color: #666666;
@@ -698,10 +749,10 @@ input[type="submit"]:hover{
     text-decoration: underline;
   }
 
-  select#user-type {
+#user-type {
     width: 100%;
     padding: 10px;
-    margin: 20px 0; 
+    margin: 10px 0; 
     font-size: 16px;
     border: 2px solid #adadad;
     border-radius: 0px;
@@ -710,33 +761,39 @@ input[type="submit"]:hover{
     transition: border-color 0.5s;
 }
 
-select#user-type:focus {
+#user-type:focus {
   border-color: #2691d9;
   box-shadow: 0 0 5px rgba(38, 145, 217, 0.5);
 }
 
-select#user-type option {
+#user-type option {
     color: #999;
 }
 
-select#user-type option:checked {
+#user-type option:checked {
     background-color: #2691d9;
     color: black;
+    
 }
 
 
-select#user-type:hover option {
+#user-type:hover option {
     background-color: white;
 }
 
-
+#user-type ~ .invalid-feedback{
+  position: relative;
+  top: -10px;
+}
 
 .terms-checkbox {
   margin: 0px 0 10px 0;
+  
 }
 
-.terms-checkbox input[type="checkbox"] {
-  margin-right: 5px;
+#terms-checkbox {
+  margin-right: 10px;
+  cursor: pointer;
 }
 
 .terms-checkbox label {
@@ -780,11 +837,14 @@ input[type="date"]:focus {
     border-color: #2691d9;
 }
 
-
+.gender-buttons {
+  position: relative;
+  top: -10px;
+  height: 47px;
+}
 
 .gender-title {
-    font-weight: bold;
-    margin-bottom: 5px;
+    font-weight: bold
 }
 .gender-buttons li{
   list-style: none;

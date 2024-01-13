@@ -7,6 +7,9 @@ const SignIn = () => {
 
     const {
         isSubmitted,
+        isSubmittedSignUp,
+        isSubmittedForg,
+        isSubmittedLog,
         address,
         name,
         phoneNB1,
@@ -18,7 +21,25 @@ const SignIn = () => {
         phoneNB2,
         userType,
         descr,
+        date,
+        gender,
+        password,
+        username,
+        email,
+        term,
+        usernameForg,
+        usernameLog,
+        passwordLog,
+        emailForg,
+        handleSubmit,
+        handleSubmitSignUp,
+        handleSubmitForg,
+        handleSubmitLog,
+        handleTermsChange,
         handleAddressChange,
+        handleEmailChange,
+        handleUsernameChange,
+        handlePasswordChange,
         handleNameChange,
         handlePhoneNB1Change,
         handleCityChange,
@@ -27,31 +48,20 @@ const SignIn = () => {
         handleDirectorChange,
         handleCinChange,
         handlePhoneNB2Change,
-        handleSubmit,
         handleUserTypeChange,
-        handleDescrChange
+        handleDescrChange,
+        handleDateChange,
+        handleGenderChange,
+        handleEmailForgChange,
+        handlePasswordLogChange,
+        handleUsernameForgChange,
+        handleUsernameLogChange,
+        RestForm,
+        ResetFormForg,
+        ResetFormLog,
         } = useFormSubmit();
         
-
-        const SignUpFormHandler = (event)=>{
-            if(userType==="simple-user"){
-
-                alert('successfuly sign up')
-            }
-            else
-            {
-                const handler=authHandlers("signup-container","login-container","Forgot-pass-container","association_verification", "none", "block")
-                handler.AssociationVerHandler()
-            }
-
-            event.preventDefault()
-            document.getElementById("signupForm").reset()
-            
-        }
-
-
-
-
+        
     return ( 
     <div className="SingInContent">
             <img src={Logo} alt="" class="logo"></img>
@@ -59,31 +69,42 @@ const SignIn = () => {
                 <h1>
                     Login
                 </h1>
-                <form id="loginForm" onSubmit={(event)=>{
-                    event.preventDefault()
-                    alert("successfuly log in ")
-                    document.getElementById("loginForm").reset()
-                    }}>
+                <form id="loginForm">
 
                     <div class="txt_field">
-                        <input type="text" required></input>
+                        <input type="text" onChange={handleUsernameLogChange} required></input>
                         <label id="username">Username</label>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div className={`${isSubmittedLog && usernameLog === '' ? "invalid-feedback": "invalid-hide"}`}>
+                            Please enter a valid username.
+                        </div>
                     </div>
+
                     <div class="txt_field">
-                        <input type="password" required></input>
+                        <input type="password" onChange={handlePasswordLogChange} required></input>
                         <label id="pass">Password</label>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div className={`${isSubmittedLog && passwordLog === '' ? "invalid-feedback": "invalid-hide"}`}>
+                            Please enter a valid password.
+                        </div>
                     </div>
+
                     <div class="passForgoten">
                         <a onClick={()=>{
                         const handler=authHandlers("signup-container","login-container","Forgot-pass-container","association_verification", "none", "block")
                         handler.ForgotPassHandler();
                     }}>Forgot Password?</a>
                     </div>
-                    <input type="submit" value="Login"></input>
+                    <input type="submit" value="Login" onClick={handleSubmitLog}></input>
                     <div class="signup_link">
                         Not a member? <a onClick={()=>{
                         const handler=authHandlers("signup-container","login-container","Forgot-pass-container","association_verification", "none", "block")
                         handler.SignUpHandler()
+                        ResetFormLog()
                     }} >SignUp</a>
                     </div>
                 </form>
@@ -91,27 +112,36 @@ const SignIn = () => {
     
             <div class="right" id="Forgot-pass-container">
                 <h1>Forgot Password</h1>
-                <form id="forgtoPassForm" onSubmit={(event)=>{
-                    event.preventDefault()
-                    const handler=authHandlers("signup-container","login-container","Forgot-pass-container","association_verification", "none", "block")
-                    handler.LogInHandler()
-                    document.getElementById("forgtoPassForm").reset()
-                    document.getElementById("loginForm").reset()
-                    }}>
+                <form id="forgtoPassForm">
 
                     <div class="txt_field2">
-                        <input type="text" required></input>
+                        <input type="text" onChange={handleUsernameForgChange} required></input>
                         <label id="username">Username</label>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div className={`${isSubmittedForg && usernameForg === '' ? "invalid-feedback": "invalid-hide"}`}>
+                            Please enter a valid username.
+                        </div>
                     </div>
+
                     <div class="txt_field2">
-                        <input type="email-number" required></input>
+                        <input type="email-number" onChange={handleEmailForgChange} required></input>
                         <label id="email_number">Email or mobile number</label>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div className={`${isSubmittedForg && emailForg === '' ? "invalid-feedback": "invalid-hide"}`}>
+                            Please enter a valid email.
+                        </div>
+
                     </div>
-                    <input type="submit" value="Send" ></input>
+                    <input type="submit" value="Send" onClick={handleSubmitForg}></input>
                     <div class="Forgot-pass-link2">
                         Back to the <a onClick={()=>{
                         const handler=authHandlers("signup-container","login-container","Forgot-pass-container","association_verification", "none", "block")
                         handler.LogInHandler()
+                        ResetFormLog()
                     }} >Login page</a>
                     </div>
                 </form>
@@ -121,58 +151,95 @@ const SignIn = () => {
                 <h1>
                     Sign Up
                 </h1>
-                <form id="signupForm" onSubmit={SignUpFormHandler}>
+                <form id="signupForm">
                     <div class="txt_field1">
-                        <input type="text" required></input>
+                        <input type="text" required onChange={handleUsernameChange}></input>
                         <label>Username</label>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div className={`${isSubmittedSignUp && username === '' ? "invalid-feedback": "invalid-hide"}`}>
+                            Please enter a valid username.
+                        </div>
                     </div>
+
+
                     <div class="txt_field1">
-                        <input type="email" required></input>
+                        <input type="email" required onChange={handleEmailChange}></input>
                         <label>Email</label>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div className={`${isSubmittedSignUp && email === '' ? "invalid-feedback": "invalid-hide"}`}>
+                            Please enter a valid Email.
+                        </div>
                     </div>
+
+
+
                     <div class="txt_field1">
-                        <input type="password" required></input>
+                        <input type="password"  required onChange={handlePasswordChange}></input>
                         <label>Password</label>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div className={`${isSubmittedSignUp && password === '' ? "invalid-feedback": "invalid-hide"}`}>
+                            Please enter a valid password.
+                        </div>
                     </div>
             
                     <div class="flex-container">
                         <label>Date of Birth</label>
-                        <input type="date"  placeholder="Date of Birth"></input>
+                        <input type="date" onChange={handleDateChange} required></input>
+                        <div className={`${isSubmittedSignUp && date==='' ? "invalid-feedback": "invalid-hide"}`}>
+                            *requierd.
+                        </div>
                     </div>
         
                     <div class="gender-buttons">
                         <label class="gender-title">Gender : </label>
-                        <label class="gender-button"></label>
                         <ul>
-                            <li><input type="radio" name="gender" value="male" required></input>
+                            <li><input type="radio" name="gender" value="male" required onChange={handleGenderChange}></input>
                             Male</li>
-                            <li> <input type="radio" name="gender" value="female" required></input>
+                            <li> <input type="radio" name="gender" value="female" required onChange={handleGenderChange}></input>
                             Female</li>
-                            <li><input type="radio" name="gender" value="other" required></input>
+                            <li><input type="radio" name="gender" value="other" required onChange={handleGenderChange}></input>
                             Other</li>
                         </ul>
-                        
 
+                        <div className={`${isSubmittedSignUp && gender === '' ? "invalid-feedback": "invalid-hide"}`}>
+                            *requierd.
+                        </div>
                     </div>
                     
     
-                    <select id="user-type"  onChange={handleUserTypeChange}>
-                        <option selected disabled>Choose account type</option>
-                        <option value="simple-user">Simple User</option>
-                        <option value="association">Association</option>
-                    </select>
-            
-                    <div class="terms-checkbox">
-                        <input type="checkbox" id="terms-checkbox" required></input>
-                        <label for="terms-checkbox">I agree to the <a href="https://www.termsandconditionsgenerator.com/live.php?token=H4A5kjdc08abZes6KCKrIQZM0JkGeBCV" target="_blank">Terms of Privacy and Policy</a></label>
+                    <div className="selectType">
+                        <select id="user-type"  onChange={handleUserTypeChange} required>
+                            <option value="" selected disabled>Choose account type</option>
+                            <option value="simple-user">Simple User</option>
+                            <option value="association">Association</option>
+                        </select>
+                        <div className={`${isSubmittedSignUp && (userType != "simple-user" && userType != "association") ? "invalid-feedback": "invalid-hide"}`}>
+                            Please select you account type.
+                        </div>
                     </div>
             
-                    <input type="submit" value="Sign Up"></input>
+                    <div class="terms-checkbox">
+                        <input type="checkbox" id="terms" onChange={handleTermsChange} required></input>
+                        <label>I agree to the <a href="https://www.termsandconditionsgenerator.com/live.php?token=H4A5kjdc08abZes6KCKrIQZM0JkGeBCV" target="_blank">Terms of Privacy and Policy</a></label>
+                        <div className={`${isSubmittedSignUp && !term ? "invalid-feedback": "invalid-hide"}`}>
+                            *requierd.
+                        </div>
+                    </div>
+            
+                    <input type="submit" value="Sign Up" onClick={handleSubmitSignUp}></input>
                     <div class="signup_link1">
                         Already have an account? <a 
                         onClick={()=>{
                             const handler=authHandlers("signup-container","login-container","Forgot-pass-container","association_verification", "none", "block")
                             handler.LogInHandler()
+                            document.getElementById("signupForm").reset()
+                            RestForm()
                             }} >Login</a>
                     </div>
                 </form> 
@@ -335,7 +402,8 @@ const SignIn = () => {
                     <div class="btn_back">
                         <input type="submit" value="Back" onClick={()=>{
                             const handler=authHandlers("signup-container","login-container","Forgot-pass-container","association_verification", "none", "block")
-                            handler.SignUpHandler()}
+                            handler.SignUpHandler()   
+                        }
                         }></input>
                     </div>
 
