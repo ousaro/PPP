@@ -1,6 +1,8 @@
 
 import { useState } from 'react';
-import authHandlers from './Auth';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useAuthenticationContext } from "../Context/AuthenticationContext";
+
 
 export function useFormSubmit() {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -34,10 +36,12 @@ export function useFormSubmit() {
   const [emailForg, setEmailForg] = useState("");
 
 
+  const history=useHistory();
+  const {handleAuthentication} = useAuthenticationContext()
+
   // reset form
   const RestForm = (event)=>{
-    document.getElementById("signupForm").reset()
-    document.getElementById("user-type").selectedIndex=0
+    document.getElementById("Auth_SignIn_Forms").reset()
     setUsername("")
     setEmail("")
     setPassword("")
@@ -45,19 +49,23 @@ export function useFormSubmit() {
     setGender("")
     setUserType("")
     setTerms(false)
+    handleAuthentication(false);
   }
 
   const ResetFormLog = (event) =>{
-    document.getElementById("loginForm").reset()
+    document.getElementById("Auth_LogIn_Form").reset()
     setUsernameLog("")
     setPasswordLog("")
+    handleAuthentication(false);
+      
   }
 
   const ResetFormForg = (event) =>{
-    document.getElementById("forgtoPassForm").reset()
+    document.getElementById("Auth_ForgotPass_Form").reset()
     setUsernameForgLog("")
     setEmailForg("")
-    ResetFormLog()
+    handleAuthentication(false);
+    
   }
 
 
@@ -162,12 +170,14 @@ export function useFormSubmit() {
     ) 
     {
       event.preventDefault();
+      handleAuthentication(false);
     } 
     
     else 
     {
-
+        event.preventDefault();
         alert("successfuly log in ")
+        handleAuthentication(true);
       
     }
 
@@ -183,16 +193,14 @@ export function useFormSubmit() {
 
     {
       event.preventDefault();
+      handleAuthentication(false);
 
     } 
     
     else 
     {
-
-      const handler=authHandlers("signup-container","login-container","Forgot-pass-container","association_verification", "none", "block")
-      handler.LogInHandler()
-      ResetFormForg()
-      
+      alert("chech you email!")
+      handleAuthentication(false);
     }
 
     setIsSubmittedForg(true);
@@ -209,22 +217,23 @@ export function useFormSubmit() {
        gender===""||
        term === false
        ){
-
         event.preventDefault();
-
+        handleAuthentication(false);
       }
     else{
       if(userType==="simple-user"){
 
+        event.preventDefault();
         alert('successfuly sign up')
+        handleAuthentication(true);
       }
       else if(userType==="association")
       {
-        const handler=authHandlers("signup-container","login-container","Forgot-pass-container","association_verification", "none", "block")
-        handler.AssociationVerHandler()
-        RestForm()
+        handleAuthentication(false);
+        history.push("/AssociationVerification")
+        
       }
-   }    
+    }    
       setIsSubmittedSignUp(true);
   }
 
@@ -250,8 +259,9 @@ export function useFormSubmit() {
     else 
     {
 
+      event.preventDefault();
       alert("Submitted");
-      
+      handleAuthentication(true);
     }
 
     setIsSubmitted(true);
@@ -281,6 +291,7 @@ export function useFormSubmit() {
     password,
     username,
     term,
+  
 
     usernameForg,
     emailForg,
@@ -321,5 +332,6 @@ export function useFormSubmit() {
     RestForm,
     ResetFormLog,
     ResetFormForg,
+
   };
 }
